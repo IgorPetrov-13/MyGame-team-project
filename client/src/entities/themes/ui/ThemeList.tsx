@@ -1,19 +1,19 @@
 import React from 'react';
-import RaceCard from './ThemeCard';
+import ThemeCard from './ThemeCard';
 import { useAppSelector } from '../../../app/providers/store/store';
 
-function RaceList(): JSX.Element {
-  const raceCards = useAppSelector((state) => state.races);
+function ThemeList(): JSX.Element {
+  const themeCards = useAppSelector((state) => state.themes);
    
   return (
     <div>
-      {raceCards.map((raceCard) => (
-        <div className="col-sm-6" key={raceCard.id}>
-          <RaceCard raceCard={raceCard} />
+      {themeCards.map((themeCard) => (
+        <div className="col-sm-6" key={themeCard.id}>
+          <ThemeCard themeCard={ThemeCard} />
         </div>
       ))}
     </div>
   );
 }
 
-export default RaceList;
+export default ThemeList;

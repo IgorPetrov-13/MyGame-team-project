@@ -1,20 +1,15 @@
 import React, { useState } from 'react';
-import type { RaceType } from '../types/themeType';
+
 import { useAppDispatch } from '../../../app/providers/store/store';
-import { deleteRaces, updateRaces } from '../model/themeSlice';
+import { ThemeType } from '../types/themeType';
 
-function RaceCard({ raceCard }: { raceCard: RaceType }): JSX.Element {
+
+function ThemeCard({ themeCard }: { themeCard: ThemeType }): JSX.Element {
   const [isEditing, setIsEditing] = useState<boolean>(false);
-  const [formData, setFormData] = useState(raceCard);
-
+  const [formData, setFormData] = useState(themeCard);
   const dispatch = useAppDispatch();
 
-  const handleSave = (id: number): void => {
-    dispatch(updateRaces({ id, form: formData }))
-      .then(() => setIsEditing(false))
-      .catch(console.log);
-  };
-
+  
   const handleEdit = (): void => {
     setIsEditing(true);
   };
@@ -27,9 +22,6 @@ function RaceCard({ raceCard }: { raceCard: RaceType }): JSX.Element {
     }));
   };
 
-  const onDeleteHandler = (id: number): void => {
-    dispatch(deleteRaces(id)).catch(console.log);
-  };
 
   return (
     <div>
@@ -44,9 +36,7 @@ function RaceCard({ raceCard }: { raceCard: RaceType }): JSX.Element {
                 value={formData.description}
                 onChange={handleChange}
               />
-              <button type="button" onClick={() => handleSave(formData.id)}>
-                Save
-              </button>
+             
             </div>
           ) : (
             <>
@@ -58,12 +48,10 @@ function RaceCard({ raceCard }: { raceCard: RaceType }): JSX.Element {
             </>
           )}
         </div>
-        <button type="button" onClick={() => onDeleteHandler(formData.id)}>
-          Удалить{' '}
-        </button>
+        
       </div>
     </div>
   );
 }
 
-export default RaceCard;
+export default ThemeCard;

@@ -13,7 +13,7 @@ function AppRoutes(): JSX.Element {
         <Route path="/" element={<MainPage />} />
         <Route path="/login" element={<LoginForm />} />
         <Route path="/registration" element={<RegistrationForm/>} />
-        <Route path="/themes" element={<Themes/>} />
+        {/* <Route path="/themes" element={<Themes/>} /> */}
 
         {/* всегда внизу */}
         <Route path="*" element={<div>404</div>} />

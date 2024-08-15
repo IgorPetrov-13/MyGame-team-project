@@ -4,6 +4,7 @@ import type { User } from '../types/userType';
 import { LoginFormType } from '../types/authFormType';
 import AuthApi from '../api/AuthApi';
 import { setAccessToken } from '../../../services/apiAxiosInstance';
+import { RegFormType } from '../types/regFormType';
 
 const initialState: {
   user: User | null;
@@ -15,6 +16,17 @@ const initialState: {
 
 const userLogin = createAsyncThunk('user/login', async ({ email, password }: LoginFormType) =>
   AuthApi.postAuth({ email, password }),
+);
+const userReg = createAsyncThunk('user/registration', async ({ name,
+  email,
+  password,
+  confirmPassword,
+  score }: RegFormType) =>
+  AuthApi.postRegistraion({ name,
+    email,
+    password,
+    confirmPassword,
+    score }),
 );
 
 const refreshAccessToken = createAsyncThunk('user/refreshAccessToken', async () => AuthApi.refreshTokens());
@@ -32,9 +44,13 @@ const userSlice = createSlice({
       setAccessToken(action.payload.accessToken);
       return action.payload;
     });
+    builder.addCase(userReg.fulfilled, (_state, action) => {
+      setAccessToken(action.payload.accessToken);
+      return action.payload;
+    });
   }
 });
 
 
-export { userLogin , refreshAccessToken};
+export { userLogin , refreshAccessToken, userReg};
 export default userSlice.reducer;

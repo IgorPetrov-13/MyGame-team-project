@@ -2,8 +2,8 @@ import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch, useSelector } from 'react-redux';
 import themeSliceReducer from '../../../entities/themes/model/themeSlice';
 import userSliceReducer from '../../../entities/user/model/userSlice';
-import questionSliceReducer from '../../../entities/questions/model/questionSlice.ts';
-import answerSliceReducer from '../../../entities/answers/model/answerSlice';
+// import questionSliceReducer from '../../../entities/questions/model/questionSlice.ts';
+// import answerSliceReducer from '../../../entities/answers/model/answerSlice';
 
 // store - хранилище состояния приложения
 // store.dispatch - функция, которая отправляет action в store
@@ -11,8 +11,8 @@ import answerSliceReducer from '../../../entities/answers/model/answerSlice';
 const store = configureStore({
   reducer: {
     themes: themeSliceReducer,
-    questions: questionSliceReducer,
-    answers: answerSliceReducer,
+    // questions: questionSliceReducer,
+    // answers: answerSliceReducer,
     users: userSliceReducer,
   },
 });

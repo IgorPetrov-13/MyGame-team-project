@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 import React from 'react';
-import RaceList from '../../entities/themes/ui/RaceList';
+import RaceList from '../../entities/themes/ui/ThemeList';
 
 function RacePage(): JSX.Element {
   return (

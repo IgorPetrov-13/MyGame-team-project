@@ -5,15 +5,27 @@ import { useAppSelector } from '../../../app/providers/store/store';
 function Navbar(): JSX.Element {
   const user = useAppSelector((state) => state.user.user);
 
+  //! +++++++Дописать логику выхода +++++++
+  const handleLogout = () => {};
+
   return (
     <div>
       {user ? <div>Привет, {user.name}</div> : <div>Привет, Гость</div>}
 
       <nav>
-        <Link to="/">Home</Link>
-        <Link to="/login">Login</Link>
-        <Link to="/race">Race</Link>
-        <Link to="/character">Character</Link>
+        <Link to="/">Главная</Link>
+        <Link to="/game">Игра</Link>
+        {user ? (
+          <>
+            <div>{user.name}</div>
+            <button>Выйти</button>
+          </>
+        ) : (
+          <>
+            <Link to="/login">Войти</Link>
+            <Link to="/registration">Зарегистрироваться</Link>
+          </>
+        )}
       </nav>
     </div>
   );

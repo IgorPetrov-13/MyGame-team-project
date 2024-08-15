@@ -5,17 +5,18 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useAppDispatch } from '../../../app/providers/store/store';
-import { userLogin } from '../model/userSlice';
 
 const schema = yup
   .object()
   .shape({
+    name: yup.string().required(),
     email: yup.string().email().required(),
     password: yup.string().required(),
+    confirmPassword: yup.string().required(),
   })
   .required();
 
-function LoginForm(): JSX.Element {
+function RegistrationForm(): JSX.Element {
   const {
     register,
     handleSubmit,
@@ -28,27 +29,30 @@ function LoginForm(): JSX.Element {
 
   const navigate = useNavigate();
 
-  const authorizationUser = ({ email, password }: { email: string; password: string }): void => {
-   
-    dispatch(userLogin({ email, password }))
-      .then(() => navigate('/'))
-      .catch((error) => console.log(error));
-      
-  };
+  //! +++++++Дописать логику регистрации +++++++
+  // const registrationUser = ({ email, password }: { email: string; password: string }): void => {
+  //   dispatch(userLogin({ email, password }))
+  //     .then(() => navigate('/'))
+  //     .catch((error) => console.log(error));
+  // };
 
   return (
     <>
       <h3>Войти</h3>
 
-      <form onSubmit={handleSubmit(authorizationUser)}>
+      <form onSubmit={handleSubmit(registrationUser)}>
+        <input type="text" placeholder="Имя" {...register('name')} />
+        <p>{errors.name?.message}</p>
         <input type="text" placeholder="Email" {...register('email')} />
         <p>{errors.email?.message}</p>
-        <input type="password" placeholder="Password" {...register('password')} />
+        <input type="password" placeholder="Пароль" {...register('password')} />
         <p>{errors.password?.message}</p>
+        <input type="password" placeholder="Повторите пароль" {...register('confirmPassword')} />
+        <p>{errors.confirmPassword?.message}</p>
         <button type="submit">Вход</button>
       </form>
     </>
   );
 }
 
-export default LoginForm;
+export default RegistrationForm;

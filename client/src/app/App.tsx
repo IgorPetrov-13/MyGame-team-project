@@ -4,7 +4,7 @@ import './App.css';
 import AppRoutes from './providers/routes/AppRoutes';
 import Spinner from '../shared/ui/Spinner/Spinner';
 import { useAppDispatch } from './providers/store/store';
-import { loadRaces } from '../entities/themes/model/raceSlice';
+import { loadRaces } from '../entities/themes/model/themeSlice';
 import { refreshAccessToken } from '../entities/user/model/userSlice';
 
 function App(): JSX.Element {

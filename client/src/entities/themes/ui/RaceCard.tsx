@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import type { RaceType } from '../types/raceType';
 import { useAppDispatch } from '../../../app/providers/store/store';
-import { deleteRaces, updateRaces } from '../model/raceSlice';
+import { deleteRaces, updateRaces } from '../model/themeSlice';
 
 function RaceCard({ raceCard }: { raceCard: RaceType }): JSX.Element {
   const [isEditing, setIsEditing] = useState<boolean>(false);

@@ -1,17 +1,19 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch, useSelector } from 'react-redux';
-import raceSliceReducer from '../../../entities/themes/model/raceSlice';
+import themeSliceReducer from '../../../entities/themes/model/themeSlice';
 import userSliceReducer from '../../../entities/user/model/userSlice';
-import characterSliceReducer from '../../../entities/characters/model/CharacterSlice';
+import questionSliceReducer from '../../../entities/questions/model/questionSlice';
+import answerSliceReducer from '../../../entities/answers/model/answerSlice';
 
 // store - хранилище состояния приложения
 // store.dispatch - функция, которая отправляет action в store
 // store.getState - функция, которая возвращает текущее состояние store
 const store = configureStore({
   reducer: {
-    races: raceSliceReducer,
-    user: userSliceReducer,
-    characters: characterSliceReducer,
+    themes: themeSliceReducer,
+    questions: questionSliceReducer,
+    answers: answerSliceReducer,
+    users: userSliceReducer,
   },
 });
 

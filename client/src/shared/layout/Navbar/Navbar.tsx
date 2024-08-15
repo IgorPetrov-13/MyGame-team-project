@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useAppSelector } from '../../../app/providers/store/store';
 
 function Navbar(): JSX.Element {
-  const user = useAppSelector((state) => state.user.user);
+  const user = useAppSelector((state) => state.user);
 
   //! +++++++Дописать логику выхода +++++++
   const handleLogout = () => {};

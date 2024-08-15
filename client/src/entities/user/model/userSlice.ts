@@ -1,7 +1,7 @@
 /* eslint-disable arrow-body-style */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import type { User } from '../types/userType';
-import { LoginFormType } from '../types/authFormType';
+import type { LoginFormType } from '../types/authFormType';
 import AuthApi from '../api/AuthApi';
 import { setAccessToken } from '../../../services/apiAxiosInstance';
 

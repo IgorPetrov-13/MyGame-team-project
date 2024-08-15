@@ -8,6 +8,10 @@ import userSliceReducer from '../../../entities/user/model/userSlice';
 // store - хранилище состояния приложения
 // store.dispatch - функция, которая отправляет action в store
 // store.getState - функция, которая возвращает текущее состояние store
+
+//!Дописать в store и слайсы на :
+//!questions: questionSliceReducer,
+//!answers: answerSliceReducer,
 const store = configureStore({
   reducer: {
     themes: themeSliceReducer,

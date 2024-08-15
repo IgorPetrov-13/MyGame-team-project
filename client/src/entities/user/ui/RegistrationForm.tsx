@@ -49,13 +49,13 @@ function RegistrationForm(): JSX.Element {
 
   return (
     <>
-      <h3>Войти</h3>
-
+      <h3>Зарегистрироваться</h3>
       <form
         onSubmit={handleSubmit(({ name, email, password, confirmPassword, score }) =>
           registrationUser({ name, email, password, confirmPassword, score }),
         )}
       >
+
         <input type="text" placeholder="Имя" {...register('name')} />
         <p>{errors.name?.message}</p>
         <input type="text" placeholder="Email" {...register('email')} />

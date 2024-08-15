@@ -1,34 +1,32 @@
-/* eslint-disable arrow-body-style */
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import type { RaceType, RaceWithoutIdType } from '../types/raceType';
-import RaceApi from '../api/RaceApi';
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { ThemeType } from '../types/themeType';
+import ThemeApi from '../api/ThemeApi';
 
-const initialState: RaceType[] = [];
 
-const loadRaces = createAsyncThunk('race/load', () => RaceApi.getAllRaces());
-const deleteRaces = createAsyncThunk('race/delete', (id: number) => RaceApi.deleteRace(id));
-const updateRaces = createAsyncThunk(
-  'race/update',
-  ({ id, form }: { id: number; form: RaceWithoutIdType }) => RaceApi.updateRace({ id, form }),
+const initialState: ThemeType[] = [];
+
+// Создаем асинхронный thunk для загрузки тем с использованием API
+const loadThemes = createAsyncThunk<ThemeType[]>(
+  'theme/load',
+  async () => {
+    return await ThemeApi.getAllThemes();
+  }
 );
 
-const raceSlice = createSlice({
-  name: 'raceSlice',
+// Создаем slice для управления состоянием тем
+const themeSlice = createSlice({
+  name: 'themeSlice',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(loadRaces.fulfilled, (state, action) => {
-      state.push(...action.payload);
-    });
-    // eslint-disable-next-line arrow-body-style
-    builder.addCase(deleteRaces.fulfilled, (state, action) => {
-      return state.filter((el) => el.id !== action.meta.arg);
-    });
-    builder.addCase(updateRaces.fulfilled, (state, action) => {
-      return state.map((el) => (el.id === action.payload.id ? action.payload : el));
+    // Обработка успешного выполнения thunk loadThemes
+    builder.addCase(loadThemes.fulfilled, (state, action: PayloadAction<ThemeType[]>) => {
+      state.push(...action.payload); // Добавляем полученные темы в состояние
     });
   },
 });
 
-export { loadRaces, deleteRaces, updateRaces };
-export default raceSlice.reducer;
+// Экспортируем thunk для использования в компонентах
+export { loadThemes };
+// Экспортируем reducer для добавления в store
+export default themeSlice.reducer;

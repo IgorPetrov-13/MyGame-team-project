@@ -1,5 +1,5 @@
 import React from 'react';
-import RaceCard from './RaceCard';
+import RaceCard from './ThemeCard';
 import { useAppSelector } from '../../../app/providers/store/store';
 
 function RaceList(): JSX.Element {

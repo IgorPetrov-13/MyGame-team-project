@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import type { RaceType } from '../types/raceType';
+import type { RaceType } from '../types/themeType';
 import { useAppDispatch } from '../../../app/providers/store/store';
 import { deleteRaces, updateRaces } from '../model/themeSlice';
 

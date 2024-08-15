@@ -3,7 +3,16 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "reMig": "npx sequelize db:migrate:undo:all && npx sequelize db:migrate",
+    "undoMig": "npx sequelize db:migrate:undo:all",
+    "mig": "npx sequelize db:migrate",
+    "seed": "npx sequelize db:seed:all",
+    "undoSeed": "npx sequelize db:seed:undo:all",
+    "createDB": "npx sequelize db:create",
+    "dev": "nodemon app.js",
+    "dbr": "npx sequelize db:drop && npx sequelize db:create && npx sequelize db:migrate:undo:all && npx sequelize db:migrate && npx sequelize db:seed:undo:all && npx sequelize db:seed:all",
+    "dropDB": "npx sequelize db:drop"
   },
   "keywords": [],
   "author": "",

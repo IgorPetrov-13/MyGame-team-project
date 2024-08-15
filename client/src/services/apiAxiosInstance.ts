@@ -16,7 +16,7 @@ type TokensRefreshResponse = {
 axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8';
 
 const axiosInstance: AxiosInstance = axios.create({
-  baseURL: '/api/v1',
+  baseURL: '/api',
   withCredentials: true,
   headers: {
     'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ axiosInstance.interceptors.response.use(
       return Promise.reject(error);
     }
     if (error?.response?.status === 403 && !prevRequest.sent) {
-      const response = await axios<TokensRefreshResponse>('/api/v1/tokens/refresh');
+      const response = await axios<TokensRefreshResponse>('/api/tokens/refresh');
       const newAccessToken = response.data.accessToken;
         setAccessToken(newAccessToken)
         prevRequest.sent = true;

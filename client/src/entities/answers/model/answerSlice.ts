@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { AnswerType } from '../types/answerType';
+import AnswerApi from '../api/AnswerApi';
 
 
 const initialState: AnswerType[] = [];

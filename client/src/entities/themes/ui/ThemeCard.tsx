@@ -1,12 +1,20 @@
 import React from 'react';
-import { ThemeType } from '../types/themeType';
+import type { ThemeWithQuestionsType } from '../types/themeType';
+import QuestionList from '../../questions/ui/QuestionList';
 
-function ThemeCard({ themeCard }: { themeCard: ThemeType }): JSX.Element {
+function ThemeCard({ themeCard }: { themeCard: ThemeWithQuestionsType }): JSX.Element {
+  console.log(themeCard.Questions);
+  
   return (
     <div className="card" style={{ width: '18rem' }}>
       <div className="card-body">
-        <h2 className="card-title">{themeCard.title}</h2>
-       </div>
+        <div className="card-title">{themeCard.title}</div>
+        {themeCard.Questions.map((question) => (
+          <div key={question.id}>
+            <QuestionList question={question} /> 
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

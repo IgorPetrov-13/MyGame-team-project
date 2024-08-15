@@ -1,16 +1,13 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ThemeType } from '../types/themeType';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import type { PayloadAction } from '@reduxjs/toolkit';
+import type { ThemeWithQuestionsType } from '../types/themeType';
 import ThemeApi from '../api/ThemeApi';
 
-
-const initialState: ThemeType[] = [];
+const initialState: ThemeWithQuestionsType[] = [];
 
 // Создаем асинхронный thunk для загрузки тем с использованием API
-const loadThemes = createAsyncThunk<ThemeType[]>(
-  'theme/load',
-  async () => {
-    return await ThemeApi.getAllThemes();
-  }
+const loadThemes = createAsyncThunk<ThemeWithQuestionsType[]>('theme/load', () =>
+  ThemeApi.getAllThemes(),
 );
 
 // Создаем slice для управления состоянием тем
@@ -20,9 +17,12 @@ const themeSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     // Обработка успешного выполнения thunk loadThemes
-    builder.addCase(loadThemes.fulfilled, (state, action: PayloadAction<ThemeType[]>) => {
-      state.push(...action.payload); // Добавляем полученные темы в состояние
-    });
+    builder.addCase(
+      loadThemes.fulfilled,
+      (state, action: PayloadAction<ThemeWithQuestionsType[]>) => {
+        state.push(...action.payload); // Добавляем полученные темы в состояние
+      },
+    );
   },
 });
 

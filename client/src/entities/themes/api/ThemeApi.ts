@@ -1,10 +1,10 @@
 import type { AxiosResponse } from 'axios';
 import axiosInstance from '../../../services/apiAxiosInstance';
-import type { ThemeType } from '../types/themeType';
+import type {  ThemeWithQuestionsType } from '../types/themeType';
 
 class ThemeApi {
-  static getAllThemes = async (): Promise<ThemeType[]> => {
-    const response: AxiosResponse<ThemeType[]> = await axiosInstance.get('/themes');
+  static getAllThemes = async (): Promise<ThemeWithQuestionsType[]> => {
+    const response: AxiosResponse<ThemeWithQuestionsType[]> = await axiosInstance.get('/themes');
     return response.data;
   };
 }

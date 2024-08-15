@@ -4,7 +4,7 @@ import type { User } from '../types/userType';
 import type { LoginFormType } from '../types/authFormType';
 import AuthApi from '../api/AuthApi';
 import { setAccessToken } from '../../../services/apiAxiosInstance';
-import { RegFormType } from '../types/regFormType';
+import type { RegFormType } from '../types/regFormType';
 
 const initialState: {
   user: User | null;

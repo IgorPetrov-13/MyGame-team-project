@@ -26,8 +26,9 @@ function App(): JSX.Element {
   return <div>
   {loading ? (
     <>
-      <MainImage/>
-      <AppRoutes />
+    <AppRoutes />
+    <MainImage/>
+      
     </>
   ) : (
     <Spinner />

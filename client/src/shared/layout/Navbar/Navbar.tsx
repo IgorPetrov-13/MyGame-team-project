@@ -24,10 +24,10 @@ function Navbar(): JSX.Element {
 
         {user ? (
           <>
-            <Link to="/logout">Выйти</Link>
             <Link to="/themes">
               <span>Игра</span>
             </Link>
+            <Link to="/logout">Выйти</Link>
           </>
         ) : (
           <>

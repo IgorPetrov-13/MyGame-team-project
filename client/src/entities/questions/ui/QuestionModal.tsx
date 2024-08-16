@@ -20,10 +20,10 @@ function QuestionModal({ question, setOpenModal, setUserScore }: TypeProps): JSX
       <div className="modal-background" onClick={() => setOpenModal(false)} />
       <div className="modal-content">
         <div className="box">
-          <p>{question.text}</p>
+          <p style={{fontSize: '25px'}}>{question.text}</p>
 
           {filtredAnswers.map((answer) => (
-            <div key={answer.id}>
+            <div key={answer.id} style={{marginButtom: '10px'}}>
               <AnswerButton answer={answer} setUserScore={setUserScore} question={question} />
             </div>
           ))}

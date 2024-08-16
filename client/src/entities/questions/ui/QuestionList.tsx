@@ -11,15 +11,22 @@ function QuestionList({
 }): JSX.Element {
   const [openModal, setOpenModal] = useState(false);
   const [isDesabled, setIsDesabled] = useState(false);
+  const [buttonColor, setButtonColor] = useState('white');
 
   const handlerChecker = (): void => {
     setOpenModal((prev) => !prev);
     setIsDesabled((prev) => !prev);
+    setButtonColor('grey')
   };
 
   return (
     <div>
-      <button type="button" onClick={handlerChecker} disabled={isDesabled}>
+      <button
+        type="button"
+        onClick={handlerChecker}
+        disabled={isDesabled}
+        style={{ color: 'black' , backgroundColor: buttonColor}}
+      >
         {question.point}
       </button>
       {openModal && (

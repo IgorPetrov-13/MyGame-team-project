@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 import React, { useState } from 'react';
 import ThemeList from '../../entities/themes/ui/ThemeList';
+import './ThemePage.css';
 
 function ThemePage(): JSX.Element {
   const [userScore, setUserScore]: [number, React.Dispatch<React.SetStateAction<number>>] =

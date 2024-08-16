@@ -1,16 +1,23 @@
-
-
-.main-page-text {
+/* Основной контейнер страницы */
+.MainPage {
+    width: 100%; /* Ширина на всю доступную ширину */
+    max-width: 1200px; /* Максимальная ширина, соответствующая ширине навбара */
+    padding: 2rem;
+    margin: 0 auto; /* Центрирование контейнера */
+    background-color: #143335; /* Цвет фона, как у навбара */
+    border: 5px solid #f7144e; /* Рамка для контейнера */
+    border-radius: 8px; /* Закругленные углы */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Тень для выделения */
+    text-align: center; /* Выравнивание текста по центру */
+  }
+  
+  /* Стили для основного текста на странице */
+  .main-page-text {
     padding: 1rem 2rem;
-    border: 5px solid #f7144e;
-    box-shadow: 0 0 15px 5px #f7144e;
-    background-color: #143335;
-    color: #fde4e6;
-    text-align: center;
+    background-color: #143335; /* Цвет фона текста */
+    color: #fde4e6; /* Цвет текста */
     font-size: 2rem;
     font-weight: bold;
-    max-width: 80%;
-    margin: 2rem auto;
-    border-radius: 8px;
+    border-radius: 8px; /* Закругленные углы текста */
   }
   

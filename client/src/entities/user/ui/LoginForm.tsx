@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-misused-promises */
+// LoginForm.tsx
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
@@ -6,6 +6,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useAppDispatch } from '../../../app/providers/store/store';
 import { userLogin } from '../model/userSlice';
+import './LoginForm.css'; 
 
 const schema = yup
   .object()
@@ -29,17 +30,14 @@ function LoginForm(): JSX.Element {
   const navigate = useNavigate();
 
   const authorizationUser = ({ email, password }: { email: string; password: string }): void => {
-   
     dispatch(userLogin({ email, password }))
       .then(() => navigate('/'))
       .catch((error) => console.log(error));
-      
   };
 
   return (
-    <>
-      <h3>Войти</h3>
-
+    <div className="login-form-container">
+      
       <form onSubmit={handleSubmit(authorizationUser)}>
         <input type="text" placeholder="Email" {...register('email')} />
         <p>{errors.email?.message}</p>
@@ -47,7 +45,7 @@ function LoginForm(): JSX.Element {
         <p>{errors.password?.message}</p>
         <button type="submit">Вход</button>
       </form>
-    </>
+    </div>
   );
 }
 

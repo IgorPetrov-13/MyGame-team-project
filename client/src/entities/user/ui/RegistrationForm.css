@@ -1,0 +1,66 @@
+/* RegistrationForm.css */
+
+.registration-form-container {
+    background-color: #020607;
+    color: #e1ebe4;
+    border-radius: 8px;
+    padding: 2rem;
+    max-width: 500px;
+    margin: auto;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Заголовок формы */
+  .registration-form-container h3 {
+    margin-bottom: 1rem;
+    color: #f7144e;
+    text-align: center;
+  }
+  
+  /* Стили для групп полей */
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  /* Стили для input полей */
+  .input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #f7144e;
+    border-radius: 8px;
+    background-color: #020607;
+    color: #e1ebe4;
+    margin-bottom: 0.5rem;
+    transition: border-color 0.3s ease;
+  }
+  
+  .input-error {
+    border-color: #f7144e;
+  }
+  
+  /* Сообщения об ошибках */
+  .error-message {
+    color: #f7144e;
+    font-size: 0.875rem;
+    margin: 0.5rem 0;
+  }
+  
+  /* Кнопка отправки формы */
+  .submit-button {
+    padding: 0.75rem 1.5rem;
+    border: 2px solid #f7144e;
+    border-radius: 8px;
+    background-color: #f7144e;
+    color: #e1ebe4;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-top: 1rem;
+  }
+  
+  .submit-button:hover {
+    background-color: #fde4e6;
+    color: #f7144e;
+  }
+  

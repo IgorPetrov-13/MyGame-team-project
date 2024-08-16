@@ -104,14 +104,7 @@ function RegistrationForm(): JSX.Element {
         </div>
 
         <div className="form-group">
-          <label htmlFor="score">Оценка:</label>
-          <input
-            type="number"
-            id="score"
-            placeholder="Оценка"
-            {...register('score')}
-            className={errors.score ? 'input-error' : 'input'}
-          />
+          
           {errors.score && <p className="error-message">{errors.score.message}</p>}
         </div>
 

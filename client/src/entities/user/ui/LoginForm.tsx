@@ -37,7 +37,7 @@ function LoginForm(): JSX.Element {
 
   return (
     <div className="login-form-container">
-      <h3>Войти</h3>
+      
       <form onSubmit={handleSubmit(authorizationUser)}>
         <input type="text" placeholder="Email" {...register('email')} />
         <p>{errors.email?.message}</p>

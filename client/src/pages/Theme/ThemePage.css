@@ -1,0 +1,36 @@
+/* ThemePage.css */
+
+/* Основной контейнер страницы */
+.theme-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #020607; /* Темный фон страницы */
+    padding: 2rem;
+  }
+  
+  /* Стили для контейнера с темами */
+  .theme-list-wrapper {
+    width: 100%;
+    max-width: 1200px; /* Максимальная ширина контейнера */
+    padding: 2rem;
+    background-color: #0a1c1d; /* Темный фон для списка тем */
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.3); /* Тень вокруг списка тем */
+    transition: box-shadow 0.3s ease;
+  }
+  
+  /* Эффект при наведении на контейнер */
+  .theme-list-wrapper:hover {
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5); /* Увеличение тени при наведении */
+  }
+  
+  /* Центрирование и отступы для списка тем */
+  .theme-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  

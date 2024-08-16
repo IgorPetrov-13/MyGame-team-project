@@ -1,0 +1,66 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background-color: #020607;
+    padding: 2rem;
+    border-radius: 8px;
+    border: 2px solid #f7144e;
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+  }
+  
+  .modal-content h3 {
+    color: #f7144e;
+    margin-bottom: 1rem;
+  }
+  
+  .answers {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .answer-button {
+    padding: 1rem;
+    border: 2px solid #f7144e;
+    border-radius: 8px;
+    background-color: #f7144e;
+    color: #e1ebe4;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .answer-button:hover {
+    background-color: #fde4e6;
+    color: #f7144e;
+  }
+  
+  .close-button {
+    padding: 0.5rem 1rem;
+    border: 2px solid #f7144e;
+    border-radius: 8px;
+    background-color: #f7144e;
+    color: #e1ebe4;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .close-button:hover {
+    background-color: #fde4e6;
+    color: #f7144e;
+  }
+  

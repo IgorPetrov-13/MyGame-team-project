@@ -1,0 +1,136 @@
+/* Navbar.css */
+
+/* Основной контейнер навбара */
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background-color: transparent;
+    margin: 2rem 0;
+    border: 2px solid transparent; /* Убрали рамку */
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.5s ease, border-color 0.5s ease;
+  }
+  
+  /* Эффект затемнения/подсветки рамки */
+  .navbar:hover {
+    box-shadow: 0 0 15px #f7144e;
+    border-color: #fde4e6;
+  }
+  
+  /* Стили для приветствия */
+  .navbar .greeting {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #e1ebe4;
+    padding: 0.5rem 1.5rem;
+    background-color: transparent;
+    white-space: nowrap;
+    position: absolute;
+    left: 100%;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: transform 1s ease, opacity 1s ease;
+  }
+  
+  .navbar .greeting.show {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  
+  /* Стили для навигационного меню */
+  .navbar nav {
+    display: flex;
+    gap: 2rem;
+    flex-grow: 1;
+    justify-content: center;
+  }
+  
+  /* Стили для ссылок */
+  .navbar nav a {
+    color: #e1ebe4;
+    padding: 0.5rem 1.5rem;
+    border: 2px solid #f7144e;
+    border-radius: 8px;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: transparent;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .navbar nav a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f7144e;
+    z-index: 0;
+    transition: transform 0.3s ease;
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  
+  .navbar nav a:hover::before {
+    transform: scaleX(1);
+  }
+  
+  .navbar nav a:hover {
+    color: #fde4e6;
+  }
+  
+  .navbar nav a span {
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Стили для кнопки выхода */
+  .navbar button {
+    color: #e1ebe4;
+    padding: 0.5rem 1.5rem;
+    border: 2px solid #f7144e;
+    border-radius: 8px;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .navbar button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f7144e;
+    z-index: 0;
+    transition: transform 0.3s ease;
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  
+  .navbar button:hover::before {
+    transform: scaleX(1);
+  }
+  
+  .navbar button:hover {
+    color: #fde4e6;
+  }
+  
+  .navbar button span {
+    position: relative;
+    z-index: 1;
+  }
+  

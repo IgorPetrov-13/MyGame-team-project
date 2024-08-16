@@ -6,6 +6,7 @@ import Spinner from '../shared/ui/Spinner/Spinner';
 import { useAppDispatch } from './providers/store/store';
 import { loadThemes } from '../entities/themes/model/themeSlice';
 import { refreshAccessToken } from '../entities/user/model/userSlice';
+import MainImage from '../shared/ui/mainImage/MainImage';
 
 function App(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -22,7 +23,16 @@ function App(): JSX.Element {
       .catch(console.log);
   }, []);
 
-  return <div>{loading ? <AppRoutes /> : <Spinner />}</div>;
+  return <div>
+  {loading ? (
+    <>
+    <AppRoutes />
+    <MainImage/>
+    </>
+  ) : (
+    <Spinner />
+  )}
+</div>
 }
 
 export default App;

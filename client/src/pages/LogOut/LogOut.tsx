@@ -5,6 +5,7 @@ import React, { type Dispatch } from 'react';
 import { type user, type userArray } from '../type';
 import { useAppDispatch, useAppSelector } from "../../app/providers/store/store";
 import { userLogOut } from "../../entities/user/model/userSlice";
+import './LogoutPage.css'; 
 
 
 

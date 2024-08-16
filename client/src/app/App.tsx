@@ -31,7 +31,7 @@ function App(): JSX.Element {
   {loading ? (
     <>
     <AppRoutes />
-    <MainImage/>
+    {/* <MainImage/> */}
     </>
   ) : (
     <Spinner />

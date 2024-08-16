@@ -1,0 +1,109 @@
+/* index.css */
+
+/* Установка глобальных стилей для всего приложения */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Arial', sans-serif;
+  background-image: url('https://u2.9111s.ru/uploads/202303/15/09be2ae9fc88da8e65d4f5ecd2fcac57.png');
+  background-size: cover; /* Обеспечивает масштабирование изображения, чтобы покрыть весь фон */
+  background-position: center; /* Центрирует изображение на фоне */
+  background-repeat: no-repeat; /* Предотвращает повторение изображения */
+  color: #e1ebe4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Основной контейнер для всего приложения */
+#root {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Стили для навбара */
+.navbar {
+  width: 100%;
+  padding: 1rem;
+  background-color: rgba(20, 51, 53, 0.8); /* Полупрозрачный фон для навбара для лучшего контраста */
+  border-bottom: 2px solid #f7144e;
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar nav {
+  display: flex;
+  gap: 2rem;
+}
+
+/* Центрирование главного компонента */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: rgba(20, 51, 53, 0.8); /* Полупрозрачный фон для контейнера */
+  border-radius: 8px;
+  box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.5);
+  margin-top: 2rem;
+  max-width: 80%;
+}
+
+/* Стили для заголовков */
+h1, h2, h3 {
+  color: #fde4e6;
+  margin-bottom: 1.5rem;
+}
+
+p {
+  color: #95aa9f;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+/* Стили для ссылок */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Общие стили для кнопок */
+button {
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 2px solid #f7144e;
+  background-color: transparent;
+  color: #e1ebe4;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #f7144e;
+  color: #020607;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+  }
+  
+  button {
+    width: 100%;
+    padding: 0.75rem;
+  }
+}

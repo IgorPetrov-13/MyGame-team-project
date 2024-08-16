@@ -1,0 +1,24 @@
+/* Уникальный класс для контейнера главной страницы */
+.main-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Полная высота экрана */
+    padding: 1rem;
+  }
+  
+  /* Уникальный класс для текста главной страницы */
+  .main-page-text {
+    padding: 1rem 2rem;
+    border: 5px solid #f7144e;
+    box-shadow: 0 0 15px 5px #f7144e;
+    background-color: #143335;
+    color: #fde4e6;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    max-width: 80%;
+    margin: 2rem auto;
+    border-radius: 8px;
+  }
+  

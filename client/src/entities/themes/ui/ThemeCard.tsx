@@ -14,17 +14,17 @@ function ThemeCard({
   return (
     <div
       className="card"
-      style={{ width: '18rem', display: 'flex', justifyContent: 'space-evenly' }}
+      style={{ width: '100%', display: 'flex', justifyContent: 'space-evenly',  }}
     >
       <div
         className="card-body"
-        style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly' }}
+        style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', width: '100%' }}
       >
-        <div className="card-title">{themeCard.title}</div>
+        <div className="card-title" style={{fontSize: '18px', width:"100px"}}>{themeCard.title} </div>
         {themeCard.Questions.map((question) => (
           <div
             key={question.id}
-            style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly' }}
+            style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', width: '100%' }}
           >
             <QuestionList question={question} setUserScore={setUserScore} />
           </div>

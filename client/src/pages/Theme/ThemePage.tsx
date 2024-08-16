@@ -6,9 +6,9 @@ function ThemePage(): JSX.Element {
   const [userScore, setUserScore]: [number, React.Dispatch<React.SetStateAction<number>>] =
     useState(0);
   return (
-    <div>
-      <p>THEME PAGE</p>
-      <p>Ваши очки: {userScore}</p>
+    <div style={{ textAlign: 'center',  }}>
+      <p style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '50px', color: "white" }}>СВОЯ ИГРА</p>
+      <p style={{fontSize: '35px', color: "white"}}>Ваши очки: {userScore}</p>
       <ThemeList setUserScore= {setUserScore} />
     </div>
   );

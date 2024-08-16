@@ -24,6 +24,7 @@ function AnswerButton({ answer, setUserScore, question }: TypeProps): JSX.Elemen
   return (
     <div>
       <button
+        style={{ color: 'black', marginBottom: '10px' }}
         type="button"
         onClick={() => handlerChecker(question.point)}
         className={

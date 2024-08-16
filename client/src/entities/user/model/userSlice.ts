@@ -23,7 +23,7 @@ const userReg = createAsyncThunk(
    ({ name, email, password, confirmPassword, score }: RegFormType) =>
     AuthApi.postRegistraion({ name, email, password, confirmPassword, score }),
 
-
+  )
 const userLogOut = createAsyncThunk('user/logout', () =>
   AuthApi.logOut());
 

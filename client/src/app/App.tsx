@@ -7,6 +7,7 @@ import { useAppDispatch } from './providers/store/store';
 import { loadThemes } from '../entities/themes/model/themeSlice';
 import { refreshAccessToken } from '../entities/user/model/userSlice';
 import { loadAnswers } from '../entities/answers/model/answerSlice';
+import MainImage from '../shared/ui/mainImage/MainImage';
 
 function App(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -26,8 +27,17 @@ function App(): JSX.Element {
   useEffect(() => {
     dispatch(loadAnswers()).catch(console.log);
   }, []);
+  return <div>
+  {loading ? (
+    <>
+    <AppRoutes />
+    <MainImage/>
+    </>
+  ) : (
+    <Spinner />
+  )}
+</div>
 
-  return <div>{loading ? <AppRoutes /> : <Spinner />}</div>;
 }
 
 export default App;

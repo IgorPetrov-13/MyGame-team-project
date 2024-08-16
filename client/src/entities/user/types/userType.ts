@@ -3,7 +3,7 @@ export type User = {
   email: string;
   name: string;
   password: string;
-  score: number;
+  score: number
 };
 
 export type UserWithoutId = Omit<User, 'id'>;

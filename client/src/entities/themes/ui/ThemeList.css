@@ -1,0 +1,33 @@
+/* ThemeList.css */
+
+/* Основной контейнер для списка тем */
+.theme-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem; /* Расстояние между карточками */
+  justify-content: center; /* Центрирование карточек */
+  padding: 1rem;
+}
+
+/* Обертка для каждой карточки темы */
+.theme-card-wrapper {
+  flex: 1 1 calc(50% - 1.5rem); /* Ширина карточек */
+  max-width: 400px; /* Максимальная ширина карточки */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Тень вокруг карточки */
+  border-radius: 8px; /* Закругленные углы */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавные переходы */
+  overflow: hidden; /* Обрезка контента за пределами карточки */
+  background-color: #020607; /* Основной фон карточки */
+}
+
+/* Эффект при наведении на карточку */
+.theme-card-wrapper:hover {
+  transform: scale(1.02); /* Увеличение карточки при наведении */
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2); /* Увеличенная тень при наведении */
+}
+
+/* Стили для содержимого карточки темы */
+.theme-card-wrapper .theme-card-content {
+  padding: 1rem;
+  color: #e1ebe4; /* Цвет текста в карточке */
+}

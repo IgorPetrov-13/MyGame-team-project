@@ -21,6 +21,11 @@ class AuthApi {
       await axiosInstance.get('/tokens/refresh');
     return response.data;
   };
+  static logOut = async (): Promise<{ user: User; accessToken: string }> => {
+    const response: AxiosResponse<{ user: User; accessToken: string }> =
+      await axiosInstance.delete('/auth/logout');
+    return response.data;
+  };
   static postRegistraion = async ({
     name,
     email,

@@ -17,11 +17,17 @@ const initialState: {
 const userLogin = createAsyncThunk('user/login', async ({ email, password }: LoginFormType) =>
   AuthApi.postAuth({ email, password }),
 );
+
 const userReg = createAsyncThunk(
   'user/registration',
-  async ({ name, email, password, confirmPassword, score }: RegFormType) =>
+   ({ name, email, password, confirmPassword, score }: RegFormType) =>
     AuthApi.postRegistraion({ name, email, password, confirmPassword, score }),
-);
+
+
+const userLogOut = createAsyncThunk('user/logout', () =>
+  AuthApi.logOut());
+
+
 
 const updateScoreDown = createAsyncThunk(
   'user/updateScore',
@@ -57,8 +63,14 @@ const userSlice = createSlice({
     builder.addCase(updateScoreUp.fulfilled, (_state, action) => {
       return action.payload
     });
+     builder.addCase(userLogOut.fulfilled, (_state, action) => {
+      setAccessToken('');
+      return action.payload;
+    });
   },
 });
 
-export { userLogin, refreshAccessToken, userReg, updateScoreDown, updateScoreUp };
+export { userLogin, refreshAccessToken, userReg, updateScoreDown, updateScoreUp, userLogOut };
 export default userSlice.reducer;
+
+

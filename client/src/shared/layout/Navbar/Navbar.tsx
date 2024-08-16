@@ -6,7 +6,7 @@ function Navbar(): JSX.Element {
   const user = useAppSelector((state) => state.users.user);
 
   //! +++++++Дописать логику выхода +++++++
-  const handleLogout = () => {};
+  // const handleLogout = () => {};
 
   return (
     <div>
@@ -17,8 +17,9 @@ function Navbar(): JSX.Element {
         <Link to="/themes">Игра</Link>
         {user ? (
           <>
-            <div>{user.name}</div>
-            <button>Выйти</button>
+            
+            <Link to="/logout">Выйти</Link>
+            
           </>
         ) : (
           <>

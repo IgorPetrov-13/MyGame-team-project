@@ -17,6 +17,10 @@ const initialState: {
 const userLogin = createAsyncThunk('user/login', async ({ email, password }: LoginFormType) =>
   AuthApi.postAuth({ email, password }),
 );
+
+const userLogOut = createAsyncThunk('user/logout', async () =>
+  AuthApi.logOut(),
+);
 const userReg = createAsyncThunk('user/registration', async ({ name,
   email,
   password,
@@ -48,9 +52,13 @@ const userSlice = createSlice({
       setAccessToken(action.payload.accessToken);
       return action.payload;
     });
+    builder.addCase(userLogOut.fulfilled, (_state, action) => {
+      setAccessToken('');
+      return action.payload;
+    });
   }
 });
 
 
-export { userLogin , refreshAccessToken, userReg};
+export { userLogin , refreshAccessToken, userReg, userLogOut};
 export default userSlice.reducer;

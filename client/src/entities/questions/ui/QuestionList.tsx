@@ -2,13 +2,16 @@ import React, { useState } from 'react';
 import type { QuestionType } from '../type/questionType';
 import QuestionModal from './QuestionModal';
 
+// const TypeProps = {
+//     question: QuestionType,
+//     setUserScore: React.Dispatch<React.SetStateAction<number>>
+// };
+
+
 function QuestionList({
   question,
   setUserScore,
-}: {
-  question: QuestionType;
-  setUserScore: React.Dispatch<React.SetStateAction<number>>;
-}): JSX.Element {
+}: TypeProps): JSX.Element {
   const [openModal, setOpenModal] = useState(false);
 
 

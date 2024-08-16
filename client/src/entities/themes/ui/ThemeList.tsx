@@ -1,7 +1,6 @@
 import React from 'react';
 import ThemeCard from './ThemeCard';
 import { useAppSelector } from '../../../app/providers/store/store';
-import type { ThemeWithQuestionsType } from '../types/themeType';
 
 function ThemeList(): JSX.Element {
   const themeCards = useAppSelector((state) => state.themes);

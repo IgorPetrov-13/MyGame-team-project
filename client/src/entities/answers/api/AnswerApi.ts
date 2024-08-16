@@ -1,7 +1,6 @@
 import type { AxiosResponse } from 'axios';
 import axiosInstance from '../../../services/apiAxiosInstance';
-
-import { AnswerType } from '../types/answerType';
+import type { AnswerType } from '../types/answerType';
 
 class AnswerApi {
   static getAllAnswers = async (): Promise<AnswerType[]> => {

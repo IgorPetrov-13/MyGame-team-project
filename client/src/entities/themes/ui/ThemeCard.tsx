@@ -3,7 +3,7 @@ import type { ThemeWithQuestionsType } from '../types/themeType';
 import QuestionList from '../../questions/ui/QuestionList';
 
 function ThemeCard({ themeCard }: { themeCard: ThemeWithQuestionsType }): JSX.Element {
-  console.log(themeCard.Questions);
+  console.log(themeCard.Questions, "themeCard.Questions");
   
   return (
     <div className="card" style={{ width: '18rem' }}>

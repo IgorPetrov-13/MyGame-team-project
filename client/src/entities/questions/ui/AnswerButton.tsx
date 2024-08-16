@@ -1,25 +1,31 @@
 import React, { useState } from 'react';
 import type { AnswerType } from '../../answers/types/answerType';
 import './buttonCSS.css';
-import { useAppDispatch, useAppSelector } from '../../../app/providers/store/store';
-import { updateScoreDown, updateScoreUp } from '../../user/model/userSlice';
+import { useAppSelector } from '../../../app/providers/store/store';
+import type { QuestionType } from '../type/questionType';
 
-function AnswerButton({ answer }: { answer: AnswerType }): JSX.Element {
+type TypeProps = {
+  answer: AnswerType;
+  setUserScore: React.Dispatch<React.SetStateAction<number>>;
+  question: QuestionType;
+};
+function AnswerButton({ answer, setUserScore, question }: TypeProps): JSX.Element {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const user = useAppSelector((state) => state.users.user);
-  const dispatch = useAppDispatch();
-  const handlerChecker = (answer): void => {
+  const handlerChecker = (point: number): void => {
     setSelectedAnswer(answer.isRigh ? 'correct' : 'incorrect');
-    // if (answer.isRigh) {
-    //     dispatch(updateScoreUp({user.id, answer.point}));
-    // }  
+    if (answer.isRigh) {
+      setUserScore((prev: number) => prev + point);
+    } else {
+      setUserScore((prev: number) => prev - point);
+    }
   };
 
   return (
     <div>
       <button
         type="button"
-        onClick={() => handlerChecker(answer)}
+        onClick={() => handlerChecker(question.point)}
         className={
           // eslint-disable-next-line no-nested-ternary
           selectedAnswer === 'correct'

@@ -1,29 +1,47 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAppSelector } from '../../../app/providers/store/store';
+import './Navbar.css';
 
 function Navbar(): JSX.Element {
   const user = useAppSelector((state) => state.users.user);
+  const [showGreeting, setShowGreeting] = useState(false);
 
-  //! +++++++Дописать логику выхода +++++++
-  const handleLogout = () => {};
+  useEffect(() => {
+    // Триггер для плавного появления приветствия
+    setTimeout(() => setShowGreeting(true), 300);
+  }, []);
+
+  const handleLogout = () => {
+    // Логика выхода
+  };
 
   return (
-    <div>
-      {user ? <div>Привет, {user.name}</div> : <div>Привет, Гость</div>}
-
+    <div className="navbar">
+      <div className={`greeting ${showGreeting ? 'show' : ''}`}>
+        Привет, {user ? user.name : 'Игрок'}!
+      </div>
       <nav>
-        <Link to="/">Главная</Link>
-        <Link to="/themes">Игра</Link>
+        <Link to="/">
+          <span>Главная</span>
+        </Link>
+        <Link to="/themes">
+          <span>Игра</span>
+        </Link>
         {user ? (
           <>
-            <div>{user.name}</div>
-            <button>Выйти</button>
+            <button onClick={handleLogout}>
+              <span>Выйти</span>
+            </button>
           </>
         ) : (
           <>
-            <Link to="/login">Войти</Link>
-            <Link to="/registration">Зарегистрироваться</Link>
+            <Link to="/login">
+              <span>Войти</span>
+            </Link>
+            <Link to="/registration">
+              <span>Зарегистрироваться</span>
+            </Link>
           </>
         )}
       </nav>

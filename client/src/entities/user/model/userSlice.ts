@@ -18,22 +18,30 @@ const userLogin = createAsyncThunk('user/login', async ({ email, password }: Log
   AuthApi.postAuth({ email, password }),
 );
 
-const userLogOut = createAsyncThunk('user/logout', async () =>
-  AuthApi.logOut(),
-);
-const userReg = createAsyncThunk('user/registration', async ({ name,
-  email,
-  password,
-  confirmPassword,
-  score }: RegFormType) =>
-  AuthApi.postRegistraion({ name,
-    email,
-    password,
-    confirmPassword,
-    score }),
+const userReg = createAsyncThunk(
+  'user/registration',
+   ({ name, email, password, confirmPassword, score }: RegFormType) =>
+    AuthApi.postRegistraion({ name, email, password, confirmPassword, score }),
+
+  )
+const userLogOut = createAsyncThunk('user/logout', () =>
+  AuthApi.logOut());
+
+
+
+const updateScoreDown = createAsyncThunk(
+  'user/updateScore',
+  ({ id, point }: { id: number; point: number }) => AuthApi.updateScore({ id, point }),
 );
 
-const refreshAccessToken = createAsyncThunk('user/refreshAccessToken', async () => AuthApi.refreshTokens());
+const updateScoreUp = createAsyncThunk(
+  'user/updateScore',
+  ({ id, point }: { id: number; point: number }) => AuthApi.updateScore({ id, point }),
+);
+
+const refreshAccessToken = createAsyncThunk('user/refreshAccessToken', async () =>
+  AuthApi.refreshTokens(),
+);
 
 const userSlice = createSlice({
   name: 'user',
@@ -52,13 +60,17 @@ const userSlice = createSlice({
       setAccessToken(action.payload.accessToken);
       return action.payload;
     });
-    builder.addCase(userLogOut.fulfilled, (_state, action) => {
+    builder.addCase(updateScoreUp.fulfilled, (_state, action) => {
+      return action.payload
+    });
+     builder.addCase(userLogOut.fulfilled, (_state, action) => {
       setAccessToken('');
       return action.payload;
     });
-  }
+  },
 });
 
-
-export { userLogin , refreshAccessToken, userReg, userLogOut};
+export { userLogin, refreshAccessToken, userReg, updateScoreDown, updateScoreUp, userLogOut };
 export default userSlice.reducer;
+
+

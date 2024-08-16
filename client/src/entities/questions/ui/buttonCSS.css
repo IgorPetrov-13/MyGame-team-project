@@ -1,0 +1,13 @@
+.correct{
+    background-color: rgb(116, 180, 116);
+    color: white;   
+    border: 1px solid green;
+    border-radius: 3px;
+}
+
+.incorrect{
+    background-color: rgb(180, 116, 116);
+    color: white;   
+    border: 1px solid red;
+    border-radius: 3px;
+}

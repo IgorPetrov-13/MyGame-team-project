@@ -1,24 +1,32 @@
 import React from 'react';
 import type { QuestionType } from '../type/questionType';
+import { useAppSelector } from '../../../app/providers/store/store';
 
-function QuestionModal({
-  question,
-  setOpenModal,
-}: {
+import './buttonCSS.css';
+import AnswerButton from './AnswerButton';
+
+type TypeProps = {
   question: QuestionType;
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
-}): JSX.Element {
+  setUserScore: React.Dispatch<React.SetStateAction<number>>
+};
+
+function QuestionModal({ question, setOpenModal, setUserScore }: TypeProps): JSX.Element {
+  const answers = useAppSelector((state) => state.answers);
+ 
+
   return (
     <div className="modal is-active">
       <div className="modal-background" onClick={() => setOpenModal(false)} />
       <div className="modal-content">
         <div className="box">
           <p>{question.text}</p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis vel ab asperiores
-            veritatis ducimus commodi cum. Doloribus magni, voluptatem minima optio eos
-            perspiciatis, quos ut sit architecto, error sint repellat?
-          </p>
+
+          {answers.map((answer) => (
+            <div key={answer.id}>
+                <AnswerButton answer={answer} setUserScore={setUserScore} question={question}/>
+            </div>
+          ))}
           <button className="button is-danger" type="button" onClick={() => setOpenModal(false)}>
             Close
           </button>

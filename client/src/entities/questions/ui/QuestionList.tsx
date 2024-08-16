@@ -2,25 +2,33 @@ import React, { useState } from 'react';
 import type { QuestionType } from '../type/questionType';
 import QuestionModal from './QuestionModal';
 
-// const TypeProps = {
-//     question: QuestionType,
-//     setUserScore: React.Dispatch<React.SetStateAction<number>>
-// };
-
-
 function QuestionList({
   question,
   setUserScore,
-}: TypeProps): JSX.Element {
+}: {
+  question: QuestionType;
+  setUserScore: React.Dispatch<React.SetStateAction<number>>;
+}): JSX.Element {
   const [openModal, setOpenModal] = useState(false);
+  const [isDesabled, setIsDesabled] = useState(false);
 
+  const handlerChecker = (): void => {
+    setOpenModal((prev) => !prev);
+    setIsDesabled((prev) => !prev);
+  };
 
   return (
     <div>
-      <button type="button" onClick={() => setOpenModal((prev) => !prev)}>
+      <button type="button" onClick={handlerChecker} disabled={isDesabled}>
         {question.point}
       </button>
-      {openModal && <QuestionModal question={question} setOpenModal={setOpenModal} setUserScore={setUserScore}/>}
+      {openModal && (
+        <QuestionModal
+          question={question}
+          setOpenModal={setOpenModal}
+          setUserScore={setUserScore}
+        />
+      )}
     </div>
   );
 }

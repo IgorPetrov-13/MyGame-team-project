@@ -1,18 +1,13 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import type { PayloadAction } from '@reduxjs/toolkit';
 
-import { AnswerType } from '../types/answerType';
+import type { AnswerType } from '../types/answerType';
 import AnswerApi from '../api/AnswerApi';
-
 
 const initialState: AnswerType[] = [];
 
 // Создаем асинхронный thunk для загрузки тем с использованием API
-const loadAnswers = createAsyncThunk<AnswerType[]>(
-  'answer/load',
-  async () => {
-    return await AnswerApi.getAllAnswers();
-  }
-);
+const loadAnswers = createAsyncThunk<AnswerType[]>('answer/load', () => AnswerApi.getAllAnswers());
 
 // Создаем slice для управления состоянием тем
 const answerSlice = createSlice({

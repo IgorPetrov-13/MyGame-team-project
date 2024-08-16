@@ -17,19 +17,25 @@ const initialState: {
 const userLogin = createAsyncThunk('user/login', async ({ email, password }: LoginFormType) =>
   AuthApi.postAuth({ email, password }),
 );
-const userReg = createAsyncThunk('user/registration', async ({ name,
-  email,
-  password,
-  confirmPassword,
-  score }: RegFormType) =>
-  AuthApi.postRegistraion({ name,
-    email,
-    password,
-    confirmPassword,
-    score }),
+const userReg = createAsyncThunk(
+  'user/registration',
+  async ({ name, email, password, confirmPassword, score }: RegFormType) =>
+    AuthApi.postRegistraion({ name, email, password, confirmPassword, score }),
 );
 
-const refreshAccessToken = createAsyncThunk('user/refreshAccessToken', async () => AuthApi.refreshTokens());
+const updateScoreDown = createAsyncThunk(
+  'user/updateScore',
+  ({ id, point }: { id: number; point: number }) => AuthApi.updateScore({ id, point }),
+);
+
+const updateScoreUp = createAsyncThunk(
+  'user/updateScore',
+  ({ id, point }: { id: number; point: number }) => AuthApi.updateScore({ id, point }),
+);
+
+const refreshAccessToken = createAsyncThunk('user/refreshAccessToken', async () =>
+  AuthApi.refreshTokens(),
+);
 
 const userSlice = createSlice({
   name: 'user',
@@ -48,9 +54,11 @@ const userSlice = createSlice({
       setAccessToken(action.payload.accessToken);
       return action.payload;
     });
-  }
+    builder.addCase(updateScoreUp.fulfilled, (_state, action) => {
+      return action.payload
+    });
+  },
 });
 
-
-export { userLogin , refreshAccessToken, userReg};
+export { userLogin, refreshAccessToken, userReg, updateScoreDown, updateScoreUp };
 export default userSlice.reducer;

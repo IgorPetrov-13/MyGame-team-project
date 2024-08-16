@@ -2,8 +2,7 @@ import type { AxiosResponse } from 'axios';
 import axiosInstance from '../../../services/apiAxiosInstance';
 import type { User } from '../types/userType';
 import type { LoginFormType } from '../types/authFormType';
-import axios from 'axios';
-import {  RegFormType } from '../types/regFormType';
+import type { RegFormType } from '../types/regFormType';
 
 class AuthApi {
   static postAuth = async ({
@@ -27,17 +26,18 @@ class AuthApi {
     email,
     password,
     confirmPassword,
-    score
-
+    score,
   }: RegFormType): Promise<{ user: User; accessToken: string }> => {
     const response: AxiosResponse<{ user: User; accessToken: string }> = await axiosInstance.post(
       '/auth/registration',
-      { name,
-        email,
-        password,
-        confirmPassword,
-        score },
+      { name, email, password, confirmPassword, score },
     );
+    return response.data;
+  };
+  
+  static updateScore = async ({id, score}: {id: number, score: number}): Promise<{ user: User; accessToken: string }> => {
+    const response: AxiosResponse<{ user: User; accessToken: string }> = await axiosInstance.post(
+      `/users/${id}`, { score },);
     return response.data;
   };
 }

@@ -1,8 +1,7 @@
 import React from 'react';
 import './MainImage.css';
 
-const MainImage: React.FC = () => {
-  return (
+const MainImage: React.FC = () => (
     <div className="main-image-container">
       <img
         className="main-image"
@@ -11,6 +10,5 @@ const MainImage: React.FC = () => {
       />
     </div>
   );
-};
 
 export default MainImage;

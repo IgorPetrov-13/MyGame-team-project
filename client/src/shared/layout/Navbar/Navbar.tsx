@@ -7,7 +7,6 @@ function Navbar(): JSX.Element {
   const user = useAppSelector((state) => state.users.user);
   const [showGreeting, setShowGreeting] = useState(false);
 
-
   useEffect(() => {
     // Триггер для плавного появления приветствия
     setTimeout(() => setShowGreeting(true), 300);
@@ -22,13 +21,13 @@ function Navbar(): JSX.Element {
         <Link to="/">
           <span>Главная</span>
         </Link>
-        <Link to="/themes">
-          <span>Игра</span>
-        </Link>
+
         {user ? (
-          <>            
+          <>
             <Link to="/logout">Выйти</Link>
-            
+            <Link to="/themes">
+              <span>Игра</span>
+            </Link>
           </>
         ) : (
           <>

@@ -11,16 +11,22 @@ function ThemeCard({
 }): JSX.Element {
   console.log(themeCard.Questions, 'themeCard.Questions');
 
-
-
-
   return (
-    <div className="card" style={{ width: '18rem' }}>
-      <div className="card-body">
+    <div
+      className="card"
+      style={{ width: '18rem', display: 'flex', justifyContent: 'space-evenly' }}
+    >
+      <div
+        className="card-body"
+        style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly' }}
+      >
         <div className="card-title">{themeCard.title}</div>
         {themeCard.Questions.map((question) => (
-          <div key={question.id}>
-            <QuestionList question={question}  setUserScore={setUserScore}/>
+          <div
+            key={question.id}
+            style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly' }}
+          >
+            <QuestionList question={question} setUserScore={setUserScore} />
           </div>
         ))}
       </div>

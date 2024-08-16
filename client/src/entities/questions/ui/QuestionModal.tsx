@@ -8,12 +8,12 @@ import AnswerButton from './AnswerButton';
 type TypeProps = {
   question: QuestionType;
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
-  setUserScore: React.Dispatch<React.SetStateAction<number>>
+  setUserScore: React.Dispatch<React.SetStateAction<number>>;
 };
 
 function QuestionModal({ question, setOpenModal, setUserScore }: TypeProps): JSX.Element {
   const answers = useAppSelector((state) => state.answers);
- 
+  const filtredAnswers = answers.filter((answer) => answer.questionId === question.id);
 
   return (
     <div className="modal is-active">
@@ -22,9 +22,9 @@ function QuestionModal({ question, setOpenModal, setUserScore }: TypeProps): JSX
         <div className="box">
           <p>{question.text}</p>
 
-          {answers.map((answer) => (
+          {filtredAnswers.map((answer) => (
             <div key={answer.id}>
-                <AnswerButton answer={answer} setUserScore={setUserScore} question={question}/>
+              <AnswerButton answer={answer} setUserScore={setUserScore} question={question} />
             </div>
           ))}
           <button className="button is-danger" type="button" onClick={() => setOpenModal(false)}>
